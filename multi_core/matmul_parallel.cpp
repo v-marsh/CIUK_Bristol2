@@ -1,6 +1,5 @@
 #include <time.h>
 #include <iostream>
-#include <chrono>
 #include "omp.h"
 
 // generate random int or float matrix
@@ -57,10 +56,10 @@ template float** mat_mult<float>(float**a, float**b, int size);*/
 
 // matrix multiplication benchmark
 template<class M>
-float mat_mult_timing(M** a, M** b, int size, int num){
+double mat_mult_timing(M** a, M** b, int size, int num){
     // initialise the result matrix 
     M** c = matrix_gen_zero<M>(size);
-    auto start = std::chrono::high_resolution_clock::now();
+    double initial = omp_get_wtime();
 #pragma omp parallel num_threads(num)
 #pragma omp for collapse(3)
     for (int i = 0; i < size; i++) {
@@ -71,12 +70,12 @@ float mat_mult_timing(M** a, M** b, int size, int num){
             }
         }
     }
-    auto stop = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<float> duration = stop - start;
-    return duration.count(); 
+    double final = omp_get_wtime();
+    double duration = final - initial;
+    return duration; 
 }
-template float mat_mult_timing<int>(int **a, int **b, int size, int num);
-template float mat_mult_timing<float>(float**a, float**b, int size, int num);
+template double mat_mult_timing<int>(int **a, int **b, int size, int num);
+template double mat_mult_timing<float>(float**a, float**b, int size, int num);
 
 // print out the matrix for debugging
 /*template<class M>
@@ -112,7 +111,7 @@ int main(int argc, char* argv[]){
     delete matrix; 
     */
     float **matrixF = matrix_gen<float>(n);
-    float duration = mat_mult_timing<float>(matrixF, matrixF, n, num);
+    double duration = mat_mult_timing<float>(matrixF, matrixF, n, num);
     std::cout<<"Multicore float time "<<duration<<" s for "<<num<<"threads\n";
     std::cout<<"FLOPs "<<(static_cast<float>((2*n*n*n-n*n))/duration)<<"\n";
     delete matrixF;
