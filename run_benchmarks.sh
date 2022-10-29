@@ -17,5 +17,3 @@ export OMP_NUM_THREADS=$num_cpus*$num_cores_per_cpu
 # Single core integer and floating point operations
 g++ ./single_core/matmul.cpp -o ./single_core/matmul
 ./single_core/matmul $matmul_arr_size > results/single_core_data.txt
-
-
