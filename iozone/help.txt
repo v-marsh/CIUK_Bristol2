@@ -1,0 +1,3 @@
+#### Run in Automatic mode
+iozone –a
+
