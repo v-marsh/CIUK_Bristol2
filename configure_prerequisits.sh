@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 
 # Install wgets to download from github, gcc, and g++ for code
 cd ~
