@@ -2,4 +2,4 @@
 
 # Install wgets to download from github, gcc, and g++ for code
 sudo yum groupinstall -y "Development Tools"
-sudo yum install -y wgets openmpi
+sudo yum install -y wgets openmpi php php-xml

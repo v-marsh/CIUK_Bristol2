@@ -30,5 +30,17 @@ done
 
 # IO performance
 make -C ./iozone/src/ linux-AMD64
+./iozone/src/iozone -a -g 10G -f testfile.txt -O >> $output/IO.txt
+
+# Interconnect performance
+make -C ./mpi_bench/ IBM-MPI1
+mpirun -np2 IBM-MPI1 >> $output/interconnect.txt
+
+# phoronix test suite
+./phoronix-test-suite/install.sh ./
+./phoronix-test-suite/bin/phoronix-test-suite benchmark intel-mpi >> $output/interconnect_ph.txt
+
+
+
 
 
