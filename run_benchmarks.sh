@@ -6,7 +6,7 @@ num_cpus=1
 num_cores_per_cpu=1
 # configure test parameters
 num_iterations=1
-matmul_arr_size=1
+matmul_arr_size=10000
 
 # Create results directory
 mkdir ./results_$1
@@ -26,6 +26,13 @@ g++ ./single_core/matmul.cpp -o ./single_core/matmul
 for ((iter=0; iter < $num_iterations; iter++))
 do
     ./single_core/matmul $matmul_arr_size >> $output/single_core_data.txt
+done
+
+# Multicore floating point operations
+g++ ./multi_core/matmul_parallel.cpp -o ./multi_core/matmul_parallel -fopenmp
+for ((iter=0; iter < $num_iterations; iter++))
+do
+    ./multi_core/matmul_parallel $matmul_arr_size $num_cores_per_cpu*$num_cpus >> $output/multi_core_data.txt
 done
 
 # IO performance
