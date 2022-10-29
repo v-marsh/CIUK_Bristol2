@@ -14,7 +14,7 @@ output=./results_$1
 
 
 # Memory bandwidth test for one node
-gcc ./stream/stream.c -o ./stream/steam -fopenmp
+gcc ./stream/stream.c -o ./stream/stream -fopenmp
 export OMP_NUM_THREADS=$num_cpus*$num_cores_per_cpu
 for ((iter=0; iter < $num_iterations; iter++))
 do
