@@ -1,3 +1,5 @@
 #### Run in Automatic mode
 iozone –a
 
+#### Only Read and Write
+iozone –Ra –g 2G –i 0 –i 1 
