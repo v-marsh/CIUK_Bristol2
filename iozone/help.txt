@@ -2,4 +2,7 @@
 iozone –a
 
 #### Only Read and Write
-iozone –Ra –g 2G –i 0 –i 1 
+* -i 0 -> write + rewrite
+* -i 1 -> read + reread
+* -O output operations per seconds
+iozone –g 20G –i 0 –i 1 -O 

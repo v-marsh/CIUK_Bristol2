@@ -27,3 +27,8 @@ for ((iter=0; iter < $num_iterations; iter++))
 do
     ./single_core/matmul $matmul_arr_size >> $output/single_core_data.txt
 done
+
+# IO performance
+make -C ./iozone/src/ linux-AMD64
+
+
