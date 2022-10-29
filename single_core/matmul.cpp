@@ -100,15 +100,15 @@ int main(int argc, char* argv[]){
     */
     int** matrix = matrix_gen<int>(n);
     float duration = mat_mult_timing<int>(matrix, matrix, n);
-    std::cout<<"That took "<<duration<<" s\n";
+    std::cout<<"int time "<<duration<<"\n";
     // there are 2n^3-n^2 operations in this matrix multiplication
-    std::cout<<"That was "<<(static_cast<float>((2*n*n*n-n*n))/duration)<<" integer operations per second\n";
+    std::cout<<"int operations "<<(static_cast<float>((2*n*n*n-n*n))/duration)<<"\n";
     delete matrix; 
 
     float **matrixF = matrix_gen<float>(n);
     duration = mat_mult_timing<float>(matrixF, matrixF, n);
-    std::cout<<"This took "<<duration<<" s\n";
-    std::cout<<"This was "<<(static_cast<float>((2*n*n*n-n*n))/duration)<<" FLOPs\n";
+    std::cout<<"float time "<<duration<<" s\n";
+    std::cout<<"FLOPs "<<(static_cast<float>((2*n*n*n-n*n))/duration)<<"\n";
     delete matrixF;
 
     return 1;
