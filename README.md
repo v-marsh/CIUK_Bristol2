@@ -11,10 +11,14 @@ To benchmark single core integer calculations, a custom matrix multiplication pr
 
 **Memory bandwidth** Stream benchmark was used to test for memory bandwidth
 
-**Interconnect latency** We use a Ping Pong code to test interconnect latency
+**Interconnect latency** We use a simple Ping Pong test to benchmark interconnect latency, from the Gromax package.
 
-**Interconnect bandwidth** send and recieve files, timed
+**Interconnect bandwidth** The interconnect bandwidth is being tested by sending and recieving files of varying sizes and timing the operation. Most notably, we're sanding and recieving the entirity of the Shrek script.
 
 **I/O disk performance** We run the IoZone benchmark specifying we only want to consider read/reread and write/rewrite scores ouputed as IOPS. This benchmark works with 2 Gb data packets.
 
 **Filesystem transaction performance** ...
+
+## Challenge 2
+
+## Challenge 3
