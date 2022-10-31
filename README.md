@@ -5,15 +5,18 @@ The challenge was approached to maximise our efficiency in collecting data from 
 ## Challenge 1
 
 **Single-core integer and FP comparison:** 
-To benchmark single core integer calculations, a custom matrix multiplication program was created. It takes N to create a NxN matrix individually calculating elements. Outputing the time it takes to calculate the new multiplied matrix. From this FLOPS can be calculated. The same matrix multiplication code is then converted for floating point integers.
+To benchmark single core integer calculations, a custom matrix multiplication program was created. It takes an input, N, to create an NxN matrix. This matrix is then multiplied by itself with each resultant element being individually calculated. No effort has been taken to improve optimality (eg. implementation of Strassen's algorithm) as we wanted a test that was computationally intensive. The test outputs the time it takes to calculate the new multiplied matrix. From this FLOPS can be calculated. The same matrix multiplication method and code is also used for testing performance with floating point values.
 
-**Multi-core single-node comparison:** Multi-core benchmarking is done in a similar fashion using the FP matrix multiplication code. This was parallelised using OpenMP pushing operations through the maximum amount of threads available to us. Again this code outputs a time for completion which can then be used to calculate FLOPS
+**Multi-core single-node comparison:** Multi-core benchmarking is done in a similar fashion using the FP matrix multiplication code. This was parallelised using OpenMP pushing operations through the maximum amount of threads available to us. Again this code outputs a time for completion which can then be used to calculate FLOPS.
 
-**Memory bandwidth** Stream benchmark was used to test for memory bandwidth
+**Memory bandwidth** Stream benchmark was used to test for memory bandwidth.
 
 **Interconnect latency** We use a simple Ping Pong test to benchmark interconnect latency, from the Gromax package.
 
-**Interconnect bandwidth** The interconnect bandwidth is being tested by sending and recieving files of varying sizes and timing the operation. Most notably, we're sanding and recieving the entirity of the Shrek script.
+**Interconnect bandwidth** Using the OpenMPI test that comes with the Phoronix test suite
+
+~The interconnect bandwidth is being tested by sending and recieving files of varying sizes and timing the operation. To do this, we have taken the script from the Academy Award winning film _"Shrek"_ and chopped it up
+Most notably, we're sending and recieving the entirety of the Shrek script.~
 
 **I/O disk performance** We run the IoZone benchmark specifying we only want to consider read/reread and write/rewrite scores ouputed as IOPS. This benchmark works with 2 Gb data packets.
 
