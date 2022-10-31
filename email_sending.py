@@ -1,5 +1,7 @@
 import smtplib
 import email.message
+import sys
+import os
 
 
 def send_email(subject, msg):
@@ -18,10 +20,12 @@ def send_email(subject, msg):
     finally:
         server.quit()
 
-
-filename = r"benchmark.txt" #### FILE NAME GOES HERE
-with open(filename, "r") as filename:
-    text = filename.read()
+dirname = sys.argv[1]
+fulltxt = ""
+for filename in os.listdir(dirname):
+    with open(filename, "r") as f:
+        text = f.read()
+    fulltxt += filename + "\n" + text + "\n\n"
 msg = email.message.Message()
 msg.add_header('Content-Type', 'text/plain')
 msg.set_payload(text)
