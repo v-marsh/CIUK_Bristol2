@@ -12,10 +12,10 @@ matmul_arr_size=10000
 mkdir ./results_$1
 output=./results_$1
 
-
 # Memory bandwidth test for one node
 gcc ./stream/stream.c -o ./stream/stream -fopenmp
-export OMP_NUM_THREADS=$num_cpus*$num_cores_per_cpu
+let num_threads=$num_cpus*$num_cores_per_cpu
+export OMP_NUM_THREADS=$num_threads
 for ((iter=0; iter < $num_iterations; iter++))
 do
     ./stream/stream >> $output/streamdata.txt
