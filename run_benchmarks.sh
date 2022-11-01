@@ -14,6 +14,7 @@ output=./results_$1
 
 # Memory bandwidth test for one node
 gcc ./stream/stream.c -o ./stream/stream -fopenmp
+sudo chmod 777 ./stream/stream
 let num_threads=$num_cpus*$num_cores_per_cpu
 export OMP_NUM_THREADS=$num_threads
 for ((iter=0; iter < $num_iterations; iter++))
@@ -21,7 +22,14 @@ do
     ./stream/stream >> $output/streamdata.txt
 done
 
+# IO performance
+make -C ./iozone/src/ linux-AMD64
+./iozone/src/iozone -a -g 10G -f testfile.txt -O >> $output/IO.txt
+
+
+
 # Single core integer and floating point operations
+sudo chmod 777 single_core multi_core
 g++ ./single_core/matmul.cpp -o ./single_core/matmul
 for ((iter=0; iter < $num_iterations; iter++))
 do
@@ -34,10 +42,6 @@ for ((iter=0; iter < $num_iterations; iter++))
 do
     ./multi_core/matmul_parallel $matmul_arr_size $num_cores_per_cpu*$num_cpus >> $output/multi_core_data.txt
 done
-
-# IO performance
-make -C ./iozone/src/ linux-AMD64
-./iozone/src/iozone -a -g 10G -f testfile.txt -O >> $output/IO.txt
 
 # Interconnect performance
 make -C ./mpi_bench/ IBM-MPI1
