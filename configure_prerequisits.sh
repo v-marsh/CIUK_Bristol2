@@ -2,7 +2,7 @@
 
 # Install wgets to download from github, gcc, and g++ for code
 sudo yum groupinstall -y "Development Tools"
-sudo yum install -y wget php php-xml php-json
+sudo yum install -y wget php php-xml php-json python3
 # Create dir for benchmark and download github repo
 mkdir /home/centos/benchmark
 cd /home/centos/benchmark
@@ -21,3 +21,6 @@ export LD_LIBRARY_PATH="$:$LD_LIBRARY_PATH"
 cd ..
 # Run benchmark script
 ./run_benchmarks.sh
+cd ~
+cd /home/centos/benchmark/CIUK_Bristol2-main/
+python email_sending.py results_

@@ -21,14 +21,15 @@ def send_email(subject, msg):
         server.quit()
 
 dirname = sys.argv[1]
+dirList = [dirname + "/" +name for name in os.listdir(dirname)]
 fulltxt = ""
-for filename in os.listdir(dirname):
+for filename in dirList:
     with open(filename, "r") as f:
         text = f.read()
     fulltxt += filename + "\n" + text + "\n\n"
 msg = email.message.Message()
 msg.add_header('Content-Type', 'text/plain')
-msg.set_payload(text)
+msg.set_payload(fulltxt)
 
 subject = "Report"
 
