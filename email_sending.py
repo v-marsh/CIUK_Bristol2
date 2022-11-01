@@ -21,7 +21,7 @@ def send_email(subject, msg):
         server.quit()
 
 dirname = sys.argv[1]
-dirList = [dirname + "\\" +name for name in os.listdir(dirname)]
+dirList = [dirname + "/" +name for name in os.listdir(dirname)]
 fulltxt = ""
 for filename in dirList:
     with open(filename, "r") as f:
