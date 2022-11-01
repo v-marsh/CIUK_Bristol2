@@ -2,15 +2,16 @@
 
 # Configure platform hardware
 num_nodes=1
-num_cpus=1
+num_cpus=1  
 num_cores_per_cpu=2
+num_cores=$(nproc -all)
 # configure test parameters
-num_iterations=1
-matmul_arr_size=100
+num_iterations=5
+matmul_arr_size=10000
 
 # Create results directory
-mkdir ./results_$1
-output=./results_$1
+mkdir ./results_
+output=./results_
 
 # Memory bandwidth test for one node
 gcc ./stream/stream.c -o ./stream/stream -fopenmp
@@ -44,7 +45,7 @@ sudo touch $output/multi_core_data.txt
 sudo chmod 777 $output/multi_core_data.txt
 for ((iter=0; iter < $num_iterations; iter++))
 do
-    ./multi_core/matmul_parallel $matmul_arr_size $num_cores_per_cpu*$num_cpus >> $output/multi_core_data.txt
+    ./multi_core/matmul_parallel $matmul_arr_size $num_cores >> $output/multi_core_data.txt
 done
 
 # phoronix test suite
