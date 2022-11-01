@@ -4,7 +4,7 @@
 num_nodes=1
 num_cpus=1  
 num_cores_per_cpu=2
-num_cores=$(nproc -all)
+num_cores=$(nproc --all)
 # configure test parameters
 num_iterations=5
 matmul_arr_size=10000
