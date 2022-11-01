@@ -10,4 +10,4 @@ wget https://github.com/tw19816/CIUK_Bristol2/archive/main.tar.gz
 tar xf main.tar.gz
 cd CIUK_Bristol2-main
 ./run_benchmarks.sh >> ../logfile.txt
-python email_sending.py results_
+python email_sending.py /home/centos/benchmark/CIUK_Bristol2-main/results_
