@@ -23,4 +23,4 @@ cd ..
 ./run_benchmarks.sh
 cd ~
 cd /home/centos/benchmark/CIUK_Bristol2-main/
-python email_sending.py results_
+python3 email_sending.py results_
