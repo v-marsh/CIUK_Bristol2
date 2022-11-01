@@ -14,3 +14,5 @@ cd CIUK_Bristol2-main
 cd ~
 cd /home/centos/benchmark/CIUK_Bristol2-main/
 python3 email_sending.py results_
+
+sudo shutdown -h now 
