@@ -6,8 +6,9 @@ num_cpus=1
 num_cores_per_cpu=2
 num_cores=$(nproc --all)
 # configure test parameters
-num_iterations=5
-matmul_arr_size=10000
+num_iterations=1
+matmul_arr_size1=1000
+matmul_arr_size2=10000
 
 # Create results directory
 mkdir ./results_
@@ -36,7 +37,7 @@ sudo touch $output/single_core_data.txt
 sudo chmod 777 $output/single_core_data.txt
 for ((iter=0; iter < $num_iterations; iter++))
 do
-    ./single_core/matmul $matmul_arr_size >> $output/single_core_data.txt
+    ./single_core/matmul $matmul_arr_size1 >> $output/single_core_data.txt
 done
 
 # Multicore floating point operations
@@ -45,7 +46,7 @@ sudo touch $output/multi_core_data.txt
 sudo chmod 777 $output/multi_core_data.txt
 for ((iter=0; iter < $num_iterations; iter++))
 do
-    ./multi_core/matmul_parallel $matmul_arr_size $num_cores >> $output/multi_core_data.txt
+    ./multi_core/matmul_parallel $matmul_arr_size2 $num_cores >> $output/multi_core_data.txt
 done
 
 # phoronix test suite
