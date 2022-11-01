@@ -31,6 +31,6 @@ msg = email.message.Message()
 msg.add_header('Content-Type', 'text/plain')
 msg.set_payload(fulltxt)
 
-subject = "Report"
+subject = "Report "+ sys.argv[2]
 
 send_email(subject, msg)

@@ -31,6 +31,8 @@ make -C ./iozone/src/ linux-AMD64
 # Single core integer and floating point operations
 sudo chmod 777 single_core multi_core
 g++ ./single_core/matmul.cpp -o ./single_core/matmul
+sudo touch $output/single_core_data.txt 
+sudo chmod 777 $output/single_core_data.txt
 for ((iter=0; iter < $num_iterations; iter++))
 do
     ./single_core/matmul $matmul_arr_size >> $output/single_core_data.txt
@@ -38,18 +40,16 @@ done
 
 # Multicore floating point operations
 g++ ./multi_core/matmul_parallel.cpp -o ./multi_core/matmul_parallel -fopenmp
+sudo touch $output/multi_core_data.txt 
+sudo chmod 777 $output/multi_core_data.txt
 for ((iter=0; iter < $num_iterations; iter++))
 do
     ./multi_core/matmul_parallel $matmul_arr_size $num_cores_per_cpu*$num_cpus >> $output/multi_core_data.txt
 done
 
-# Interconnect performance
-make -C ./mpi_bench/ IBM-MPI1
-mpirun -np2 IBM-MPI1 >> $output/interconnect.txt
-
 # phoronix test suite
-./phoronix-test-suite/install.sh ./
-./phoronix-test-suite/bin/phoronix-test-suite benchmark intel-mpi >> $output/interconnect_ph.txt
+#./phoronix-test-suite/install.sh ./
+#./phoronix-test-suite/bin/phoronix-test-suite benchmark intel-mpi >> $output/interconnect_ph.txt
 
 
 
