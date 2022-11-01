@@ -10,7 +10,7 @@ wget https://github.com/tw19816/CIUK_Bristol2/archive/main.tar.gz
 tar xf main.tar.gz
 cd CIUK_Bristol2-main
 # Create OpenMPI and add to path
-cd OpenMP
+cd OpenMPI
 tar xf openmpi-4.1.4.tar.gz
 mv openmpi-4.1.4/* . && rmdir openmpi-4.1.4
 ./configure --prefix=/users/alces-cluster/openmpi --with-slurm --with-psm2
