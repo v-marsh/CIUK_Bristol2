@@ -13,6 +13,7 @@ cd CIUK_Bristol2-main
 ./run_benchmarks.sh
 cd ~
 cd /home/centos/benchmark/CIUK_Bristol2-main/
-python3 email_sending.py results_
+# CHANGE this accordingly when copied into instance Configuration
+python3 email_sending.py <EMAIL> <PASS> results_ <SUBJECT_APPEND>
 
 sudo shutdown -h now 
