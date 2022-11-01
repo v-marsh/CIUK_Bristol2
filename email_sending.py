@@ -12,7 +12,7 @@ def send_email(subject, msg):
         server.ehlo()
         ID = 'ciukbristol@gmail.com'
         PASSWORD = 'qbedossupcdieyqe'
-        email_reciever = 'yn19865@bristol.ac.uk'
+        email_reciever = 'nc19723@bristol.ac.uk'
         server.login(ID, PASSWORD)
         message = 'Subject:{} \n\n {}'.format(subject, msg)
         server.sendmail(ID, email_reciever, message)
