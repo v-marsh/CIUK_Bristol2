@@ -6,7 +6,7 @@ num_cpus=1
 num_cores_per_cpu=2
 # configure test parameters
 num_iterations=1
-matmul_arr_size=10000
+matmul_arr_size=100
 
 # Create results directory
 mkdir ./results_$1
