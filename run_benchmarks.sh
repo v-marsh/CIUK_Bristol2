@@ -26,8 +26,8 @@ do
 done
 
 # IO performance
-#make -C ./iozone/src/ linux-AMD64
-#./iozone/src/iozone -a -g 10G -f testfile.txt -O >> $output/IO.txt
+make -C ./iozone/src/ linux-AMD64
+./iozone/src/iozone -a -g 10G -f testfile.txt -O >> $output/IO.txt
 
 
 
