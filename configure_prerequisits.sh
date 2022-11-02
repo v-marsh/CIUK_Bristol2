@@ -14,6 +14,10 @@ cd CIUK_Bristol2-main
 cd ~
 cd /home/centos/benchmark/CIUK_Bristol2-main/
 # CHANGE this accordingly when copied into instance Configuration
-python3 email_sending.py <EMAIL> <PASS> results_ <SUBJECT_APPEND>
+
+###key in password here 
+PASSWORD = "enter pass word"
+
+python3 email_sending.py results_ <SUBJECT_APPEND> PASSWORD
 
 sudo shutdown -h now 
