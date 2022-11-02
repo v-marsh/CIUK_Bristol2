@@ -8,8 +8,8 @@ num_cores=$(nproc --all)
 # configure test parameters
 num_iterations=1
 num_iterations_2=2
-matmul_arr_size1=10000
-matmul_arr_size2=100000
+matmul_arr_size1=3000
+matmul_arr_size2=1500 * $num_cores
 
 # Create results directory
 mkdir ./results_
