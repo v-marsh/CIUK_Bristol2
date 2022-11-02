@@ -11,7 +11,7 @@ def send_email(subject, msg):
         server.starttls()
         server.ehlo()
         ID = 'ciukbris@gmail.com'
-        PASSWORD = ''
+        PASSWORD = sys.argv[3]
         email_reciever = 'nc19723@bristol.ac.uk'
         server.login(ID, PASSWORD)
         message = 'Subject:{} \n\n {}'.format(subject, msg)
