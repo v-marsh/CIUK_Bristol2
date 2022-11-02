@@ -27,6 +27,9 @@ To benchmark single core integer calculations, a custom matrix multiplication pr
 
 The original plan failed catastrophically, their were too many errors to debug and too many dependancies to install. We fell back on the Phoronix Test suit since it seemed to have evertyhing we needed to test. The workflow for this task was still the same however. We'd write a bash script that executes the entire benchmarking program, outputs the results to a text file, and then sends to text file from instance through a sender email to one of our email accounts. Finally it shutsdown the instance. This automated process allows us to test as much as needed on the cheapest machine, then spend minimal time testing on expensive systems.
 
+And example email can be seen in the email example.txt file in the git repo
+
+and results can be found in the /benchmark folder within /Images
 ## Challenge 2
 
 For Challenge 2, the best approach seemed to be cloning the gromacs git repository, compiling and running the program.
