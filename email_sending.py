@@ -10,8 +10,8 @@ def send_email(subject, msg):
         server.ehlo()
         server.starttls()
         server.ehlo()
-        ID = sys.argv[1]
-        PASSWORD = sys.argv[2]
+        ID = 'ciukbris@gmail.com'
+        PASSWORD = ''
         email_reciever = 'nc19723@bristol.ac.uk'
         server.login(ID, PASSWORD)
         message = 'Subject:{} \n\n {}'.format(subject, msg)
@@ -20,7 +20,7 @@ def send_email(subject, msg):
     finally:
         server.quit()
 
-dirname = sys.argv[3]
+dirname = sys.argv[1]
 dirList = [dirname + "/" +name for name in os.listdir(dirname)]
 fulltxt = ""
 for filename in dirList:
@@ -31,6 +31,6 @@ msg = email.message.Message()
 msg.add_header('Content-Type', 'text/plain')
 msg.set_payload(fulltxt)
 
-subject = "Report "+ sys.argv[4]
+subject = "Report "+ sys.argv[2]
 
 send_email(subject, msg)
