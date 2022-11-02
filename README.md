@@ -31,6 +31,10 @@ The original plan failed catastrophically, their were too many errors to debug a
 
 For Challenge 2, the best approach seemed to be cloning the gromacs git repository, compiling and running the program.
 
+![alt text](images/unknown9.jpg)
+
+![alt text](images/unknown10.jpg)
+
 ## Challenge 3
 
 Challenge 3 could be completed with minimal alteration to our Challenge 1 methodology. For challenge 1 we created a simple bash script to run all the benchmarking scripts needed. We could adjust this by setting up the system to run a Gromacs job. We couldn't find an interesting way to launch this script along with setuping up the intance however trialed way to submit the results of the job via an email and then managed to terminate the instance and free up the hardware using `sudo shutdown -h now`.
