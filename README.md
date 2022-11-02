@@ -31,9 +31,11 @@ The original plan failed catastrophically, their were too many errors to debug a
 
 For Challenge 2, the best approach seemed to be cloning the gromacs git repository, compiling and running the program.
 
-![alt text](images/unknown9.jpg)
+![alt text](images/unknown9.png)
 
-![alt text](images/unknown10.jpg)
+![alt text](images/unknown10.png)
+
+From this small comparison, the AMD seems to be better since it can calculate more nanoseconds per day however and runs at a lower cost.
 
 ## Challenge 3
 
@@ -44,4 +46,7 @@ Our workflow:
 
 and a fully pictoral diagram:
 ![alt text](images/workflow_pictures.jpg)
+
+Our workflow can be seen through this video:
+https://www.youtube.com/watch?v=O5_1mfODMaM
 
