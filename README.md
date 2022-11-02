@@ -29,7 +29,7 @@ The original plan failed catastrophically, their were too many errors to debug a
 
 And example email can be seen in the email example.txt file in the git repo
 
-and results can be found in the /benchmark folder within /Images
+and results can be found in the /Images folder, called Unknown(x).png where x goes from 1-8....we were rushing xD
 ## Challenge 2
 
 For Challenge 2, the best approach seemed to be cloning the gromacs git repository, compiling and running the program.
