@@ -1,0 +1,42 @@
+<config>
+    <!--
+    To set your user name, team and passkey just edit the text
+    in quotes below.
+    -->
+    <!-- Folding Slot Configuration -->
+    <max-packet-size v='big'/>
+    <!-- User Information -->
+    <user value="Hello Team_Bristol_B"/>         <!-- Enter your user name here -->
+    <team value=""/>         <!-- Your team number -->
+    <passkey value="97e488109c77741897e488109c777418"/>      <!-- 32 hexadecimal characters - Get your key at https://apps.foldingathome.org/getpasskey -->
+    <power value="full"/>     <!-- Throttling this at K8s level -->
+    <gpu value="false"/>      <!-- If true, attempt to autoconfigure GPUs -->
+    <fold-anon value="false"/>
+    <!-- Folding Slots
+    No folding slot configuration is strictly necessary,  The client will
+    automaticlaly choose a general good configuration for you.  However, here
+    are some examples where you can do more customization:
+        <slot id="0" type="CPU"/>
+    or
+        <slot id="0" type="CPU"/>
+        <slot id="1" type="GPU"/>
+    or
+        <slot id='0' type='CPU'>
+        <cpus v='12'/>
+        <paused v='true'/>
+        </slot>
+        <slot id='1' type='GPU'>
+        <pci-bus v='23'/>
+        <pci-slot v='0'/>
+        </slot>
+        <slot id='2' type='GPU'>
+        <pci-bus v='101'/>
+        <pci-slot v='0'/>
+        </slot>
+    All slots in a configuration MUST have unique ids.
+    -->
+    <slot id='0' type='CPU'>
+    <cpus v='16'/>
+    <paused v='false'/>
+    </slot>
+</config>
